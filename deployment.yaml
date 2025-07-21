@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: helloworld-container
-        image: gcr.io/$PROJECT_ID/gcp-poc/helloworld-image:latest
+        image: gcr.io/gcp-poc-466408/gcp-poc/helloworld-image:latest
         ports:
         - containerPort: 8080
