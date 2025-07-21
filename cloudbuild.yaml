@@ -1,15 +1,17 @@
 steps:
- - name: 'gcr.io/cloud-builders/docker'
-   args: ['build', '-t', 'gcr.io/$PROJECT_ID/gcp-poc/helloworld-image', '.']
- - name: 'gcr.io/cloud-builders/kubectl'
-   args: ['apply', '-f', 'deployment.yaml']
-   env:
-     - 'CLOUDSDK_COMPUTE_REGION=us-central1'
-     - 'CLOUDSDK_CONTAINER_CLUSTER=poc-cluster'
- - name: 'gcr.io/cloud-builders/kubectl'
-   args: ['apply', '-f', 'service.yaml']
-   env:
-     - 'CLOUDSDK_COMPUTE_REGION=us-central1'
-     - 'CLOUDSDK_CONTAINER_CLUSTER=poc-cluster'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/gcp-poc/helloworld-image', '.']
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', 'deployment.yaml']
+  env:
+    - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=poc-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', 'service.yaml']
+  env:
+    - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=poc-cluster'
 images:
- - 'gcr.io/$PROJECT_ID/gcp-poc/helloworld-image'
+- 'gcr.io/$PROJECT_ID/gcp-poc/helloworld-image'
+options:
+  logging: 'CLOUD_LOGGING_ONLY'
