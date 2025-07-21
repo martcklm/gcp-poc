@@ -1,10 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: welcome-page-service
+  name: nginx-service
+  namespace: core
 spec:
   selector:
-    app: welcome-page
+    app: nginx-page
   ports:
   - protocol: TCP
     port: 80

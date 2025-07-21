@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: welcome-page-deployment
+  name: nginx-deployment
+  namespace: core
   labels:
-    app: welcome-page
+    app: nginx-page
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: welcome-page
+      app: nginx-page
   template:
     metadata:
       labels:
-        app: welcome-page
+        app: nginx-page
     spec:
       containers:
-      - name: welcome-page-container
+      - name: nginx-container
         image: gcr.io/$PROJECT_ID/gcp-poc/nginx:latest
         ports:
         - containerPort: 80
